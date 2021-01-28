@@ -4,7 +4,7 @@ html,body{
 }
 
 body{
-    background: #e4e4e4;
+    background: #f0f0f0;
 }
 
 
@@ -12,7 +12,7 @@ body{
     width: 900px;
     height: 550px;
     margin: auto;
-    background: #ffffff;
+    background: #F5F6F7;
     padding: 0;
     border: 1px solid #EBEEF5;
     color: #303133;
@@ -55,7 +55,53 @@ body{
 }
 
 .el-textarea__inner{
-    background: #f0f7ff;
+    background: #F5F6F7;
     height: 145px;
     resize: none;
+}
+.user-head{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.user-head img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.user-info{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+}
+.user-list-head{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.user-list-head img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+}
+
+.user-list-name{
+    margin-top: 5px;
+}
+
+.chat-message{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.message-content{
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.message-user-name{
+    color: #cccccc;
+    font-size: 16px;
 }

@@ -14,14 +14,19 @@
             <div class="chat-box-bottom">
                 <div class="chat-box-bottom-left">
                     <div class="chat-show-box">
-                        <div v-for="item in messageList">
+                        <div v-for="item in messageList" class="chat-message">
                             <div v-if="item.userName == 'system'" style="text-align: center">
                                 {{item.content}}
                             </div>
-                            <div v-else>
-                                  {{item.userName}} {{item.content}}
+                            <div v-else style="display: flex">
+                                <div class="user-head">
+                                    <img :src="'/static/image/head/system/'+item.userHead" alt="">
+                                </div>
+                                <div>
+                                    <div class="message-user-name">{{item.userName}}</div>
+                                    <div class="message-content">{{item.content}}</div>
+                                </div>
                             </div>
-
                         </div>
                     </div>
                     <el-input type="textarea"
@@ -32,8 +37,13 @@
                     ></el-input>
                 </div>
                 <div class="chat-box-bottom-right">
-                    <div v-for="item in userList">
-                        {{item}}
+                    <div v-for="item in userList"  class="user-info">
+                        <div class="user-list-head">
+                            <img :src="'/static/image/head/system/'+item.userHead" alt="">
+                        </div>
+                        <div class="user-list-name">
+                            {{item.userName}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -68,7 +78,6 @@
 
                 let that = this;
                 ws.onmessage = function(evt) {
-
                     let jsonData = JSON.parse(evt.data)
 
                     //用户消息
@@ -91,6 +100,11 @@
             //发送消息
             sendMessage(){
                 this.message = this.message.trim();
+
+                if(this.message == ""){
+                    return
+                }
+
                 ws.send(this.message)
                 this.message = "";
             },
@@ -101,9 +115,6 @@
                 setTimeout(function(){
                     $(".chat-show-box").scrollTop($(".chat-show-box").prop('scrollHeight'));
                 },100)
-            },
-            test(){
-                console.log(11)
             }
         }
     })

@@ -29,6 +29,12 @@
 	4、启动项目
 
 	5、浏览器运行
+	
+## 依赖库下载
+```go
+go get 	github.com/gin-gonic/gin
+go get  github.com/gorilla/websocket
+```  
   
 ## 主要逻辑
 ### 路由实现 router/router.go

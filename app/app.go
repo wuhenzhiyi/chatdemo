@@ -43,10 +43,15 @@ func SendMessageApi(ctx *gin.Context) {
 	//随机获取用户名
 	userName := getRandUserName()
 
+	//随即获取用户头像
+	userHeadIndex := rand.Intn(9) + 1
+	userHead := strconv.Itoa(userHeadIndex) + ".jpg"
+
 	client := Client{
 		Conn:     conn,
 		UserName: userName,
 		Uid:      uid,
+		UserHead: userHead,
 	}
 
 	//将用户加入用户组,使用时间戳当用户的键值
@@ -95,6 +100,7 @@ func SendMessageApi(ctx *gin.Context) {
 		message := Message{
 			Content:  string(recvMessage),
 			UserName: client.UserName,
+			UserHead: client.UserHead,
 		}
 
 		messageData := MessageData{
@@ -136,11 +142,15 @@ func getRandUserName() string {
 	return userName
 }
 
-func getUserList() []string {
-	var userList []string
+func getUserList() []User {
+	var userList []User
 
 	for _, c := range ClientMap {
-		userList = append(userList, c.UserName)
+		user := User{
+			UserName: c.UserName,
+			UserHead: c.UserHead,
+		}
+		userList = append(userList, user)
 	}
 
 	return userList
