@@ -152,3 +152,6 @@ go get  github.com/gorilla/websocket
 - 聊天室功能：后续可以加入聊天室的选择，可以切换聊天室聊天
 - 注册/登录功能，聊天记录功能，可以练习gorm+mysql+redis
 - 或者更有趣点的考虑增加机器人聊天等等
+
+### 友情推荐
+[Go小考](https://www.golangroadmap.com/)
